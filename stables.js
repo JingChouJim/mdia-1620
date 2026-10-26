@@ -1,4 +1,3 @@
-
 // Welcome!
 //
 //                                                  #    #
@@ -43,85 +42,87 @@
 //                                                         ####
 //                                                          ##
 //
-// This is a template for your assignments and final project. You'll be setting up a stable and making
-// sure it runs smoothly.
-//
-// Please do not create a new file for each assignment!
-// Feel free to keep the headings (e.g.: "Variables"), but please delete any boilerplate
-// comments. E.g.: those seen on lines 58 - 68, for example. They are usually providing directions. 
-// (Your own comments, where necessary, are acceptable.)
-//
-// NOTE: UNLESS SPECIFIED, VARIABLE NAMING IS UP TO YOU. THERE SHOULD BE NO HARD-CODED
-// NUMBERS OR STRINGS WHERE VARIBALES WOULD BE PREFERRED.
 
-//------------------------- Seting up shop (Assignment 1) -------------------------//
-
-// Store information about three horses in your stables.
-// Each horse should have the following information associated with it:
-//
-// - the name of a horse at your stable
-// - the age of the horse
-// - what the horse likes to snack on
-// - the cost to board the horse monthly
-// - the fee for a late payment (monthly rate + 20%)
-//
-// Create a variable and use it to store the name of your stable.
-// Create a variable and use it to store a message for visitors to the stable as a string. It should include the name of your stable.
-// Create a variable and use it to store a message that monthly payment is late, and the amount owing. Include the name of one of your horses in the message.
-
-
-
-  
-
-
-
-console.log("--------------------------------------------------------------------");
 let horseOne = {
-     Name: "Jimmy",
-     Age: 3,
-     Snack: "iceCream",
-     MonthlyFee: 200,
-}; 
+    name: "Cacaco",
+    nickname: "Caco",
+    age: 101,
+    snack: "Bubble Tea",
+    color: "Rainbow",
+    height: 1000,
+    monthlyCost: 900,
+    location: true
+}
 
-horseOne.latePayment = horseOne.horseOneMonthlyFee*1.2
-console.log("HorseOne Name is " + horseOne.horseOneName + " , HorseOne Age is " + horseOne.horseOneAge + "!");
-console.log("HorseOne likes to snack on " + horseOne.horseOneSnack);
-console.log("HorseOne Monthly Payment is "+ horseOne.horseOneMonthlyFee + "  , " + "HorseOne LatePayment is " + horseOne.latePayment);
-console.log("--------------------------------------------------------------------");
+horseOne.latepayment = horseOne.monthlyCost * 1.2;
 
 let horseTwo = {
-     horseTwoName: "Yuyu",
-     horseTwoAge: 5,
-     horseTwoSnack: "coffee",
-     horseTwoMonthlyFee: 400,
-}; 
-
-
-horseTwo.latePayment = horseTwo.horseTwoMonthlyFee*1.2
-console.log("HorseTwo Name is " + horseTwo.horseTwoName + " , HorseTwo Age is " + horseTwo.horseTwoAge + "!");
-console.log("HorseTwo likes to snack on " + horseTwo.horseTwoSnack);
-console.log("HorseTwo Monthly Payment is "+ horseTwo.horseTwoMonthlyFee + "  , " + "HorseTwo LatePayment is " + horseTwo.latePayment);
-console.log("--------------------------------------------------------------------");
+    name: "Dinwie",
+    nickname: "DW",
+    age: 20,
+    snack: "Teriyaki",
+    color: "NavyBlue",
+    height: 22,
+    monthlyCost: 200, 
+    location: false,
+}
+horseTwo.latepayment = horseTwo.monthlyCost * 1.2;
 
 let horseThree = {
-     horseThreeName: "Jing",
-     horseThreeAge: 29,
-     horseThreeSnack: "chocolate",
-     horseThreeMonthlyFee: 10,
-}; 
+     name: "KimChen",
+     nickname: "KC",
+     age: 48,
+     snack: "Taco",
+     color: "Red",
+     height: 9999,
+     monthlyCost:1200,
+     location: true
+}
 
-horseThree.latePayment = horseThree.horseThreeMonthlyFee*1.2
-console.log("HorseThree Name is " + horseThree.horseThreeName + " , HorseThree Age is " + horseThree.horseThreeAge + "!");
-console.log("HorseThree likes to snack on " + horseThree.horseThreeSnack);
-console.log("HorseThree Monthly Payment is "+ horseThree.horseThreeMonthlyFee + "  , " + "HorseThree LatePayment is " + horseThree.latePayment);
-console.log("--------------------------------------------------------------------");
-    
+horseThree.latepayment = horseThree.monthlyCost * 1.2;
 
+let horses = [horseOne, horseTwo, horseThree];
 
-let stableName = "BCIT D3 Horse Stable!";
-let visitorMessage ="Welcome to " + stableName + "!";
-let latePaymentMessage = "The monthly payment for " + horseOne.horseOneName +  " is late. The amount owing is " + horseOne.latePayment; 
-  console.log("My stable name is " + stableName);
-  console.log(visitorMessage);
-  console.log(latePaymentMessage);
-  
+let stableName = "Jim Stable";
+let welcomeMessage = "Welcome to " + stableName + "!";
+let latepaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latepayment + ".";
+
+let horseFour = {
+    name: "Cerave",
+    nickname: "hydratonglotion",
+    age: 49,
+    snack: "water",
+    color: "green",
+    height: 5,
+    monthlyCost: 8,
+    location: true
+}
+
+horseFour.latepayment = horseFour.monthlyCost * 1.2;
+horses.push(horseFour);
+
+horseOne.isHungry = true;
+horseTwo.isHungry = true;
+horseThree.isHungry = true;
+horseFour.isHungry = false;
+
+let totalStallsNumber = 4;
+
+function showHowManyStabllsAvailable() {
+     console.log(totalStallsNumber - horses.length);
+}
+
+showHowManyStabllsAvailable();
+
+function showLatePayment(horse) {
+     console.log(horse.monthlyCost * 1.2);
+}
+
+showLatePayment(horseOne);
+     
+
+function horseNickName(horse) {
+     return horse.nickname;
+}
+
+console.log(horseNickName(horseFour));
