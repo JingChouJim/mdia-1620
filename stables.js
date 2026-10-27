@@ -42,6 +42,7 @@
 //                                                         ####
 //                                                          ##
 //
+let latePaymentMultiplier = 1.2;
 
 let horseOne = {
     name: "Cacaco",
@@ -51,10 +52,10 @@ let horseOne = {
     color: "Rainbow",
     height: 1000,
     monthlyCost: 900,
-    location: true
+    isHorseInside: true
 }
 
-horseOne.latepayment = horseOne.monthlyCost * 1.2;
+horseOne.latepayment = horseOne.monthlyCost * latePaymentMultiplier;
 
 let horseTwo = {
     name: "Dinwie",
@@ -64,9 +65,9 @@ let horseTwo = {
     color: "NavyBlue",
     height: 22,
     monthlyCost: 200, 
-    location: false,
+    isHorseInside: false,
 }
-horseTwo.latepayment = horseTwo.monthlyCost * 1.2;
+horseTwo.latepayment = horseTwo.monthlyCost * latePaymentMultiplier;
 
 let horseThree = {
      name: "KimChen",
@@ -76,10 +77,10 @@ let horseThree = {
      color: "Red",
      height: 9999,
      monthlyCost:1200,
-     location: true
+     isHorseInside: true
 }
 
-horseThree.latepayment = horseThree.monthlyCost * 1.2;
+horseThree.latepayment = horseThree.monthlyCost * latePaymentMultiplier;
 
 let horses = [horseOne, horseTwo, horseThree];
 
@@ -95,10 +96,10 @@ let horseFour = {
     color: "green",
     height: 5,
     monthlyCost: 8,
-    location: true
+    isHorseInside: true
 }
 
-horseFour.latepayment = horseFour.monthlyCost * 1.2;
+horseFour.latepayment = horseFour.monthlyCost * latePaymentMultiplier;
 horses.push(horseFour);
 
 horseOne.isHungry = true;
@@ -106,19 +107,19 @@ horseTwo.isHungry = true;
 horseThree.isHungry = true;
 horseFour.isHungry = false;
 
-let totalStallsNumber = 4;
+let totalStallsNumber = 17;
 
-function showHowManyStabllsAvailable() {
-     console.log(totalStallsNumber - horses.length);
+function availableStalls(totalStalls, occupiedStalls) {
+     console.log(totalStalls - occupiedStalls);
 }
 
-showHowManyStabllsAvailable();
+availableStalls(totalStallsNumber, horses.length);
 
-function showLatePayment(horse) {
-     console.log(horse.monthlyCost * 1.2);
+function showLatePayment(horse, latePaymentMultiplier) {
+     console.log(horse.monthlyCost * latePaymentMultiplier);
 }
 
-showLatePayment(horseOne);
+showLatePayment(horseOne, latePaymentMultiplier);
      
 
 function horseNickName(horse) {
