@@ -55,7 +55,7 @@ let horseOne = {
     isHorseInside: true
 }
 
-horseOne.latepayment = horseOne.monthlyCost * latePaymentMultiplier;
+horseOne.latePayment = horseOne.monthlyCost * latePaymentMultiplier;
 
 let horseTwo = {
     name: "Dinwie",
@@ -67,7 +67,7 @@ let horseTwo = {
     monthlyCost: 200, 
     isHorseInside: false,
 }
-horseTwo.latepayment = horseTwo.monthlyCost * latePaymentMultiplier;
+horseTwo.latePayment = horseTwo.monthlyCost * latePaymentMultiplier;
 
 let horseThree = {
      name: "KimChen",
@@ -80,13 +80,13 @@ let horseThree = {
      isHorseInside: true
 }
 
-horseThree.latepayment = horseThree.monthlyCost * latePaymentMultiplier;
+horseThree.latePayment = horseThree.monthlyCost * latePaymentMultiplier;
 
 let horses = [horseOne, horseTwo, horseThree];
 
 let stableName = "Jim Stable";
 let welcomeMessage = "Welcome to " + stableName + "!";
-let latepaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latepayment + ".";
+let latePaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latePayment + ".";
 
 let horseFour = {
     name: "Cerave",
@@ -99,7 +99,7 @@ let horseFour = {
     isHorseInside: true
 }
 
-horseFour.latepayment = horseFour.monthlyCost * latePaymentMultiplier;
+horseFour.latePayment = horseFour.monthlyCost * latePaymentMultiplier;
 horses.push(horseFour);
 
 horseOne.isHungry = true;
