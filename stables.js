@@ -115,8 +115,8 @@ function availableStalls(totalStalls, occupiedStalls) {
 
 availableStalls(totalStallsNumber, horses.length);
 
-function showLatePayment(horse, latePaymentMultiplier) {
-     console.log(horse.monthlyCost * latePaymentMultiplier);
+function showLatePayment(horse, multiplier) {
+     console.log(horse.monthlyCost * multiplier);
 }
 
 showLatePayment(horseOne, latePaymentMultiplier);
