@@ -55,8 +55,6 @@ let horseOne = {
     isHorseInside: true
 }
 
-horseOne.latePayment = horseOne.monthlyCost * latePaymentMultiplier;
-
 let horseTwo = {
     name: "Dinwie",
     nickname: "DW",
@@ -67,7 +65,7 @@ let horseTwo = {
     monthlyCost: 200, 
     isHorseInside: false,
 }
-horseTwo.latePayment = horseTwo.monthlyCost * latePaymentMultiplier;
+
 
 let horseThree = {
      name: "KimChen",
@@ -80,13 +78,12 @@ let horseThree = {
      isHorseInside: true
 }
 
-horseThree.latePayment = horseThree.monthlyCost * latePaymentMultiplier;
 
 let horses = [horseOne, horseTwo, horseThree];
 
 let stableName = "Jim Stable";
 let welcomeMessage = "Welcome to " + stableName + "!";
-let latePaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latePayment + ".";
+
 
 let horseFour = {
     name: "Cerave",
@@ -99,8 +96,8 @@ let horseFour = {
     isHorseInside: true
 }
 
-horseFour.latePayment = horseFour.monthlyCost * latePaymentMultiplier;
 horses.push(horseFour);
+
 
 horseOne.isHungry = true;
 horseTwo.isHungry = true;
@@ -115,11 +112,24 @@ function availableStalls(totalStalls, occupiedStalls) {
 
 availableStalls(totalStallsNumber, horses.length);
 
-function showLatePayment(horse, multiplier) {
-     console.log(horse.monthlyCost * multiplier);
+
+// Calculate late payments for all horses
+for (const horse of horses) {
+    horse.latePayment = horse.monthlyCost * latePaymentMultiplier;
 }
 
-showLatePayment(horseOne, latePaymentMultiplier);
+
+// Store late payment message after calculation 
+let latePaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latePayment + ".";
+
+// Display the late payment calculated by the loop
+function showLatePayment(horse) {
+     console.log(horse.latePayment);
+}
+
+showLatePayment(horseOne);
+
+
      
 
 function horseNickName(horse) {
