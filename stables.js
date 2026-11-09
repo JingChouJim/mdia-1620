@@ -137,3 +137,42 @@ function horseNickName(horse) {
 }
 
 console.log(horseNickName(horseFour));
+
+// Day to day operations (Project)
+
+let targetTreat = "Taco";
+
+for (const horse of horses) {
+     if (horse.snack === targetTreat) {
+          console.log(`${horse.name} likes ${targetTreat}`);
+          break;
+     } else {
+          console.log(`${horse.name} doesn't like ${targetTreat}.`);
+     }
+     
+}
+
+let uniqueColor = "Rainbow";
+
+function checkHorseColor(horse) {
+     if (horse.color === uniqueColor) {
+          console.log(`${horse.name} has a unique color.`);
+     } else {
+         console.log(`${horse.name} is ${horse.color}`);
+     } 
+}
+ for (const horse of horses) {
+          checkHorseColor(horse)
+     }
+
+
+function moveHorsesOutside(horsesToMove) {
+     for (const horse of horsesToMove) {
+     if (horse.isHorseInside === true) {
+          horse.isHorseInside = false;
+          console.log(`${horse.name} has moved out to enjoy the sun.`);
+          }
+       }
+     }
+
+     moveHorsesOutside([horses[0],horses[2]]);
