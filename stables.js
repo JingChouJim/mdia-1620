@@ -1,8 +1,10 @@
 // Welcome!
-//
-//                                                  #    #
-//                                             %%% ##   ##
-//                                          %%%%% ###%🎀###
+//                                                          #
+//                                                         #
+//                                                        ##
+//                                                  #    ##
+//                                             %%% ##   ###
+//                                          %%%%% ###%🗿###
 //                                         %%%%% ### %%% #
 //                                       %%%%%% ### %%% ###
 //                                        %%%% ## %% #######
@@ -14,19 +16,19 @@
 //              %%%% ############################### #######
 //            %%%%% ################################## ######
 //          %%%%%% #################################### #C###
-//         %%%🌸%% #####################################  ###
+//         %%%💸%% #####################################  ###
 //         %%%%% #######################################
-//        %%%%%% ############### BEANS ##################
-//     % %%%%%%% ############### BEANS ##################
-//      %%%%%%%%% ############## BEANS ##################
+//        %%%%%% ############### SO HARD ##################
+//     % %%%%%%% ############### SO HARD ##################
+//      %%%%%%%%% ############## SO HARD ##################
 //     %%%%%%%%%% ########################################
 //  %%% %%%%%%%%   ###### ################################
 //    %%%%%%%%      ###### #################### ##########
-// % %%%🌸%%%%        ####### ########### ###### ##########
+// % %%%💸%%%%        ####### ########### ###### ##########
 //  %%%%%%%%%         #######  ########### ###### ########
 // %%%%%%%%%%          ##### ###  ######### ####### ######
 //  %%%%%%%%%%          #### ##               ####### ####
-//  %🌸%%%%%%%%%           ## #                  ##### ###
+//  %💸%%%%%%%%%           ## #                  ##### ###
 //   %%  %% % %%         # ##                      ## ###
 //     %   %    %        # ###                      # ###
 //                        # ###                     ## ###
@@ -34,13 +36,13 @@
 //                        # ####                   #### ##
 //                       ### ###                  ##### ###
 //                      ####  ###                 ####   ##
-//                     #####   ###                 ##    ##
+//                     #####   ###                 ##💸  ##
 //                    #####    ####                      ###
-//                     ##        ###                     ###
-//                                ####                     ##
-//                                 ####                    ###
+//                     ##💸     ###                     ###
+//                                ####                    ##
+//                                 ####💸                 ###
 //                                                         ####
-//                                                          ##
+//                                                          ##💸
 //
 let latePaymentMultiplier = 1.2;
 
@@ -52,10 +54,11 @@ let horseOne = {
     color: "Rainbow",
     height: 1000,
     monthlyCost: 900,
-    isHorseInside: true
+    isHorseInside: true,
+    toggleInside: function() {
+     this.isHorseInside = !this.isHorseInside;
+    } 
 }
-
-horseOne.latePayment = horseOne.monthlyCost * latePaymentMultiplier;
 
 let horseTwo = {
     name: "Dinwie",
@@ -67,7 +70,7 @@ let horseTwo = {
     monthlyCost: 200, 
     isHorseInside: false,
 }
-horseTwo.latePayment = horseTwo.monthlyCost * latePaymentMultiplier;
+
 
 let horseThree = {
      name: "KimChen",
@@ -80,13 +83,12 @@ let horseThree = {
      isHorseInside: true
 }
 
-horseThree.latePayment = horseThree.monthlyCost * latePaymentMultiplier;
 
 let horses = [horseOne, horseTwo, horseThree];
 
 let stableName = "Jim Stable";
 let welcomeMessage = "Welcome to " + stableName + "!";
-let latePaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latePayment + ".";
+
 
 let horseFour = {
     name: "Cerave",
@@ -99,8 +101,8 @@ let horseFour = {
     isHorseInside: true
 }
 
-horseFour.latePayment = horseFour.monthlyCost * latePaymentMultiplier;
 horses.push(horseFour);
+
 
 horseOne.isHungry = true;
 horseTwo.isHungry = true;
@@ -115,11 +117,24 @@ function availableStalls(totalStalls, occupiedStalls) {
 
 availableStalls(totalStallsNumber, horses.length);
 
-function showLatePayment(horse, multiplier) {
-     console.log(horse.monthlyCost * multiplier);
+
+// Calculate late payments for all horses
+for (const horse of horses) {
+    horse.latePayment = horse.monthlyCost * latePaymentMultiplier;
 }
 
-showLatePayment(horseOne, latePaymentMultiplier);
+
+// Store late payment message after calculation 
+let latePaymentMessage = horseOne.name + "'s monthly payment is late. The amount is $" + horseOne.latePayment + ".";
+
+// Display the late payment calculated by the loop
+function showLatePayment(horse) {
+     console.log(horse.latePayment);
+}
+
+showLatePayment(horseOne);
+
+
      
 
 function horseNickName(horse) {
@@ -127,3 +142,82 @@ function horseNickName(horse) {
 }
 
 console.log(horseNickName(horseFour));
+
+// Day to day operations (Project)
+
+let targetTreat = "Taco";
+
+for (const horse of horses) {
+     if (horse.snack === targetTreat) {
+          console.log(`${horse.name} likes ${targetTreat}`);
+          break;
+     } else {
+          console.log(`${horse.name} doesn't like ${targetTreat}.`);
+     }
+     
+}
+
+let uniqueColor = "Rainbow";
+
+function checkHorseColor(horse) {
+     if (horse.color === uniqueColor) {
+          console.log(`${horse.name} has a unique color.`);
+     } else {
+         console.log(`${horse.name} is ${horse.color}`);
+     } 
+}
+ for (const horse of horses) {
+          checkHorseColor(horse)
+}
+
+
+
+// Bedtime! Update the function that lets your horses outside so that it also calls them in if it is getting dark.
+function moveHorsesOutside(horsesToMove, isDark) {
+     for (const horse of horsesToMove) {
+     if (isDark === false && horse.isHorseInside === true) {
+          horse.isHorseInside = false;
+          console.log(`${horse.name} has moved out to enjoy the sun.`);
+          }
+     else if (isDark === true && horse.isHorseInside === false) {
+          horse.isHorseInside = true;
+          console.log((`${horse.name} has come inside for the night`));
+          
+          }
+     }
+}
+     moveHorsesOutside([horses[0],horses[2]], false);
+     moveHorsesOutside(horses, true);
+
+
+function moveHorsesInside(horseGetTreat) {
+     for (const horse of horseGetTreat) {
+     if (horse.isHorseInside === false) {
+         horse.isHorseInside = true;
+         console.log(`${horse.name} can get their fav treat ${horse.snack}`);
+          }
+     }
+}
+
+// 🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯
+function feedHorses(horsesToFeed) {
+     for (const horse of horsesToFeed) {
+     if (horse.isHorseInside === false) {
+          horse.isHorseInside = true;
+         console.log(`${horse.name} has come inside`);
+          }
+     console.log(`${horse.name} is eating ${horse.snack}`);
+     horse.isHungry = false;
+     
+     }  
+}
+
+feedHorses(horses);
+
+// Test the toggleInside method
+
+console.log(horseOne.isHorseInside);
+
+horseOne.toggleInside();
+
+console.log(horseOne.isHorseInside);
