@@ -163,16 +163,50 @@ function checkHorseColor(horse) {
 }
  for (const horse of horses) {
           checkHorseColor(horse)
-     }
+}
 
 
-function moveHorsesOutside(horsesToMove) {
+
+// Bedtime! Update the function that lets your horses outside so that it also calls them in if it is getting dark.
+function moveHorsesOutside(horsesToMove, isDark) {
      for (const horse of horsesToMove) {
-     if (horse.isHorseInside === true) {
+     if (isDark === false && horse.isHorseInside === true) {
           horse.isHorseInside = false;
           console.log(`${horse.name} has moved out to enjoy the sun.`);
           }
-       }
+     else if (isDark === true && horse.isHorseInside === false) {
+          horse.isHorseInside = true;
+          console.log((`${horse.name} has come inside for the night`));
+          
+          }
      }
+}
+     moveHorsesOutside([horses[0],horses[2]], false);
+     moveHorsesOutside(horses, true);
 
-     moveHorsesOutside([horses[0],horses[2]]);
+
+function moveHorsesInside(horseGetTreat) {
+     for (const horse of horseGetTreat) {
+     if (horse.isHorseInside === false) {
+         horse.isHorseInside = true;
+         console.log(`${horse.name} can get their fav treat ${horse.snack}`);
+          }
+     }
+}
+
+// 🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯
+function feedHorses(horsesToFeed) {
+     for (const horse of horsesToFeed) {
+     if (horse.isHorseInside === false) {
+          horse.isHorseInside = true;
+         console.log(`${horse.name} has come inside`);
+          }
+     console.log(`${horse.name} is eating ${horse.snack}`);
+     horse.isHungry = false;
+     
+     }  
+}
+
+feedHorses(horses);
+
+// bedtime
